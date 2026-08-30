@@ -1,4 +1,7 @@
-import { fetchTranscript } from "youtube-transcript";
+import {
+    fetchTranscript,
+    YoutubeTranscriptNotAvailableLanguageError,
+} from "youtube-transcript";
 
 export interface TranscriptFragment {
     text: string;
@@ -10,13 +13,27 @@ export function joinTranscript(fragments: TranscriptFragment[]): string {
 
 export async function fetchTranscriptText(
     videoUrl: string,
-    lang = "en"
+    lang?: string
 ): Promise<string> {
-    const fragments = await fetchTranscript(videoUrl, { lang });
+    const fragments = lang
+        ? await fetchTranscript(videoUrl, { lang })
+        : await fetchTranscriptPreferEnglish(videoUrl);
 
     if (fragments.length === 0) {
         throw new Error("No transcript found for this video");
     }
 
     return joinTranscript(fragments);
+}
+
+async function fetchTranscriptPreferEnglish(videoUrl: string) {
+    try {
+        return await fetchTranscript(videoUrl, { lang: "en" });
+    } catch (error) {
+        if (error instanceof YoutubeTranscriptNotAvailableLanguageError) {
+            return fetchTranscript(videoUrl);
+        }
+
+        throw error;
+    }
 }

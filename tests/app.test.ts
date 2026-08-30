@@ -7,9 +7,10 @@ import { saveTranscript } from "../src/app.js";
 import { oembedSuccess, videoUrl } from "./fixtures.js";
 import { mockFetchJson } from "./helpers.js";
 
-vi.mock("youtube-transcript", () => ({
-    fetchTranscript: vi.fn(),
-}));
+vi.mock("youtube-transcript", async (importOriginal) => {
+    const actual = await importOriginal<typeof import("youtube-transcript")>();
+    return { ...actual, fetchTranscript: vi.fn() };
+});
 
 const fetchTranscriptMock = vi.mocked(fetchTranscript);
 
