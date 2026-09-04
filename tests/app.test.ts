@@ -49,6 +49,21 @@ describe("saveTranscript", () => {
         });
     });
 
+    it("requests a custom caption language when one is provided", async () => {
+        mockFetchJson(oembedSuccess);
+        fetchTranscriptMock.mockResolvedValue([
+            { text: "Hola", duration: 1, offset: 0 },
+        ]);
+
+        const outputDir = await mkdtemp(join(tmpdir(), "yt-reader-"));
+        await saveTranscript(videoUrl, outputDir, "es");
+
+        expect(fetchTranscriptMock).toHaveBeenCalledWith(videoUrl, {
+            lang: "es",
+        });
+        expect(fetchTranscriptMock).toHaveBeenCalledTimes(1);
+    });
+
     it("does not write a file when the transcript is empty", async () => {
         mockFetchJson(oembedSuccess);
         fetchTranscriptMock.mockResolvedValue([]);

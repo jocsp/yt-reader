@@ -23,12 +23,24 @@ npx yt-reader "https://www.youtube.com/watch?v=VIDEO_ID"
 
 ```bash
 yt-reader "https://www.youtube.com/watch?v=VIDEO_ID"
+yt-reader --output transcripts --language es "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
 
-Transcripts are written to `output/` in the current directory as:
+Transcripts are written to `output/` in the current directory by default, as:
 
 ```
 Channel Name__Video Title__VIDEO_ID.txt
+```
+
+```text
+Usage: yt-reader [options] <youtube-url>
+
+Options:
+  -o, --output <dir>         Directory to write the transcript (default: output)
+  -l, --language <code>      Caption language code (for example: en, es, fr)
+      --lang <code>          Alias for --language
+  -h, --help                 Show this help
+  -v, --version              Show version
 ```
 
 ## Development

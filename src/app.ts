@@ -6,10 +6,11 @@ import { buildFilename, getVideoId } from "./utils.js";
 
 export async function saveTranscript(
     url: string,
-    outputDir = "output"
+    outputDir = "output",
+    lang?: string
 ): Promise<string> {
     const metadata = await fetchMetadata(url);
-    const fullText = await fetchTranscriptText(url);
+    const fullText = await fetchTranscriptText(url, lang);
     const filename = buildFilename(
         metadata.channelName,
         metadata.title,
