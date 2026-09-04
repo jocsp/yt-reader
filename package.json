@@ -1,16 +1,40 @@
 {
   "name": "yt-reader",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "tsx src/index.ts",
-    "test": "vitest run"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "version": "0.0.1",
+  "description": "Fetch a YouTube video transcript and save it as a text file.",
   "type": "module",
+  "bin": {
+    "yt-reader": "dist/index.js",
+    "ytr": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "prepublishOnly": "npm test && npm run build"
+  },
+  "keywords": [
+    "youtube",
+    "transcript",
+    "captions",
+    "cli"
+  ],
+  "author": "Jose",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jocsp/yt-reader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jocsp/yt-reader/issues"
+  },
+  "homepage": "https://github.com/jocsp/yt-reader#readme",
   "dependencies": {
     "youtube-transcript": "^1.3.1"
   },

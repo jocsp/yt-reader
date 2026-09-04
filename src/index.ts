@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { saveTranscript } from "./app.js";
 
 const url = process.argv[2];

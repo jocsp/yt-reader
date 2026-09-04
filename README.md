@@ -5,30 +5,44 @@ Fetches the English transcript of a YouTube video and saves it as a text file.
 ## Requirements
 
 - [Node.js](https://nodejs.org/) 18 or later
-- A video with English captions available
+- A video with captions available (English is preferred; another language is used if English is missing)
 
-## Installation
+## Install
 
 ```bash
-git clone <repo-url>
-cd yt-reader
-npm install
+npm install -g yt-reader
+```
+
+Or run once without installing:
+
+```bash
+npx yt-reader "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
 
 ## Usage
 
-Pass a YouTube URL to the `dev` script:
-
 ```bash
-npm run dev -- "https://www.youtube.com/watch?v=VIDEO_ID"
+yt-reader "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
 
-The `--` is required so npm forwards the URL to the script.
-
-## Output
-
-Transcripts are written to `output/` as:
+Transcripts are written to `output/` in the current directory as:
 
 ```
 Channel Name__Video Title__VIDEO_ID.txt
+```
+
+## Development
+
+```bash
+git clone https://github.com/jocsp/yt-reader.git
+cd yt-reader
+npm install
+npm test
+npm run build
+```
+
+Run from source without building:
+
+```bash
+npm run dev -- "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
