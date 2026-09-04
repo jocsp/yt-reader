@@ -1,6 +1,6 @@
 # yt-reader
 
-Fetches the English transcript of a YouTube video and saves it as a text file.
+Fetches a YouTube video transcript and saves it as a text file. English captions are used when available; pass `--language` to pick another.
 
 ## Requirements
 
