@@ -1,5 +1,5 @@
 {
-  "name": "yt-reader",
+  "name": "@jocsp/yt-reader",
   "version": "0.1.0",
   "description": "Fetch a YouTube video transcript and save it as a text file.",
   "type": "module",
@@ -10,6 +10,9 @@
   "files": [
     "dist/**/*.js"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=18"
   },

@@ -10,13 +10,13 @@ Fetches a YouTube video transcript and saves it as a text file. English captions
 ## Install
 
 ```bash
-npm install -g yt-reader
+npm install -g @jocsp/yt-reader
 ```
 
 Or run once without installing:
 
 ```bash
-npx yt-reader "https://www.youtube.com/watch?v=VIDEO_ID"
+npx @jocsp/yt-reader "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
 
 ## Usage
