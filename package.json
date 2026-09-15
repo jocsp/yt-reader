@@ -1,6 +1,6 @@
 {
   "name": "yt-reader",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Fetch a YouTube video transcript and save it as a text file.",
   "type": "module",
   "bin": {
@@ -8,13 +8,13 @@
     "ytr": "dist/index.js"
   },
   "files": [
-    "dist"
+    "dist/**/*.js"
   ],
   "engines": {
     "node": ">=18"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
     "dev": "tsx src/index.ts",
     "test": "vitest run",
     "prepublishOnly": "npm test && npm run build"
@@ -25,7 +25,7 @@
     "captions",
     "cli"
   ],
-  "author": "Jose",
+  "author": "Jose <jcsocorro00@gmail.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
